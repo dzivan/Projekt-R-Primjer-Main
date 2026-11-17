@@ -1,0 +1,30 @@
+Neke korištene naredbe za provjeru ulaza ili izlaza i uspostavu brokera
+
+ESP32 - Mosquitto subscribe to everything from localhost broker
+
+"C:\Program Files\mosquitto\mosquitto_sub.exe" -h localhost -t "esp32/#" -v
+
+ESP32 - Mosquitto subscribe to cloud broker (for testing purposes)
+
+"C:\Program Files\mosquitto\mosquitto_sub.exe" -h HOSTNAME -p 8883 --cafile emqxsl-ca.crt -u USERNAME -P "PASSWORD" -t "esp32/light" -d
+
+ESP32C6 - Subscribe to the cloud
+
+"C:\Program Files\mosquitto\mosquitto_sub.exe" -h HOSTNAME -p 8883 --cafile emqxsl-ca.crt -u USERNAME -P "PASSWORD" -t "esp32/alert" -d
+
+Mosquitto local broker start
+
+"C:\Program Files\mosquitto\mosquitto.exe" -c mosquitto.conf -v
+
+ESP32C6 - cloud broker connection
+
+
+Sending text messages from the cloud
+
+"C:\Program Files\mosquitto\mosquitto_pub.exe" -h HOSTNAME -p 8883 --cafile emqxsl-ca.crt -u USERNAME -P "PASSWORD" -t "esp32/command" -m "hello from cloud" -q 1
+
+Running Python edge script
+
+py try.py 
+
+:)
